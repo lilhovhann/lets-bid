@@ -12,7 +12,9 @@ The provided container expects only a single env which meant to be the final ser
 
 ## Installations
 
-**Maven** - apt install maven / brew install maven
+- install maven
+- install docker
+- install docker-compose
 
 ## Let's run it 
 `./run.sh`
