@@ -1,5 +1,5 @@
 The goal of this project is to have a service integrated with fake ad-exchange service.
-Please refer to the Google's OpenRTB documentation for information.
+Please refer to the Google's  [OpenRTB documentation](https://developers.google.com/authorized-buyers/rtb/openrtb-guide) for information.
 The provided container expects only a single env which meant to be the final service bidder endpoint. The bidder service will be registered in the ad-exchange so that it can receive requests.
 
 ## Requirements
