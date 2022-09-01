@@ -1,8 +1,10 @@
+## Description
+
 The goal of this project is to have a service integrated with fake ad-exchange service.
 Please refer to the Google's  [OpenRTB documentation](https://developers.google.com/authorized-buyers/rtb/openrtb-guide) for more information.
 The bidder service will be registered in the ad-exchange so that it can receive requests.
 
-## Requirements
+
 - A service which can answer bid requests in OpenRTB made by the fake ad-exchange.
 - A service which can have a way to pre-configure very basic ad campaigns (db, file-system or hardcoded) to bid with.
 - The bidder should respect blocked IAB categories from the bid request.
@@ -10,11 +12,13 @@ The bidder service will be registered in the ad-exchange so that it can receive 
 - **Bonus point:** Capture
  some auction metrics, i.e distribution of bid requests per IAB category.
 
-## Installations
 
-- install maven
-- install docker
-- install docker-compose
+
+## Requirements
+
+- maven
+- docker
+- docker-compose
 
 ## Let's run it 
 `./run.sh`
