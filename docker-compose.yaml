@@ -1,0 +1,57 @@
+version: "3.1"
+
+services:
+    
+    
+  exchange:
+    image: harbor.intent.ai/interview/engineering
+    ports:
+      - "9098:80"
+    container_name:  exchange
+    environment:
+      - BIDDER_ENDPOINT=http://letsbid:9095/api/v2/bids/process/bid
+    networks:
+      - intent
+    volumes:
+      - ./:/app
+
+
+
+  mongodb:      
+    build: ./mongodb
+    image: mongodb
+    container_name: mongodb    
+    volumes:
+      - ~/volumes/socnetdb/mongo/data:/data/db
+      - ~/volumes/socnetdb/mongo/logs:/data/logs
+    ports:
+      - 27017:27017
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=DonDev
+      - MONGO_INITDB_ROOT_PASSWORD=BC2022    
+    command: mongod
+    networks:
+      intent:
+        aliases:
+          - mongodb
+ 
+     
+  letsbid:
+    image: letsbid     
+    build: ./letsbid
+    container_name: letsbid   
+    links:
+      - mongodb
+    ports:
+      - 9095:9095 
+    depends_on:
+      - mongodb
+    deploy:
+      replicas: 1
+    networks:
+     - intent
+  
+networks:
+  intent:
+    driver: bridge
